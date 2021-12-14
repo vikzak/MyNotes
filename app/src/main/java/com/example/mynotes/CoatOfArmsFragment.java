@@ -12,17 +12,12 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.fragment.app.Fragment;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CoatOfArmsFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class CoatOfArmsFragment extends Fragment {
 
     static final String ARG_INDEX = "index";
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -34,15 +29,8 @@ public class CoatOfArmsFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CoatOfArmsFragment.
-     */
-    // TODO: Rename and change types and number of parameters
+
+
     // Фабричный метод создания фрагмента
     // Фрагменты рекомендуется создавать через фабричные методы
     public static CoatOfArmsFragment newInstance(int index) {
