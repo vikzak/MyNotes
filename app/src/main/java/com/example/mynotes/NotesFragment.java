@@ -94,6 +94,8 @@ public class NotesFragment extends Fragment {
             });
         }
 
+
+
     }
 
     private void showCoatOfArms(int index) {
