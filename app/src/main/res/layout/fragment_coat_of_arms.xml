@@ -1,14 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    android:clickable="true"
+    android:focusable="true"
     android:orientation="vertical"
-    tools:context=".CoatOfArmsFragment">
+    android:layout_margin="10dp"
+    android:backgroundTint="@color/notes_bg"
+    tools:context=".CoatOfArmsFragment"
+    >
 
     <ImageView
         android:id="@+id/coat_of_arms_image_view"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:contentDescription="coat of arms"
+        tools:src="@drawable/skrepka" />
+    <TextView
+        android:id="@+id/notes_header_TW"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="text"
+        android:textSize="30sp"
+        tools:text="Заметка №1"/>
+
+    <TextView
+        android:id="@+id/notes_fulltext_TW"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:contentDescription="coat of arms" />
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Для современного мира разбавленное изрядной долей эмпатии, рациональное мышление однозначно фиксирует необходимость новых принципов формирования материально-технической и кадровой базы. В своём стремлении улучшить пользовательский опыт мы упускаем, что сторонники тоталитаризма в науке представляют собой не что иное, как квинтэссенцию победы маркетинга над разумом и должны быть указаны как претенденты на роль ключевых факторов. С учётом сложившейся международной обстановки, реализация намеченных плановых заданий, в своём классическом представлении, допускает внедрение системы обучения кадров, соответствующей насущным потребностям."
+        android:textSize="20sp"
+        tools:text="Для современного мира разбавленное изрядной долей эмпатии, рациональное мышление однозначно фиксирует необходимость новых принципов формирования материально-технической и кадровой базы. В своём стремлении улучшить пользовательский опыт мы упускаем, что сторонники тоталитаризма в науке представляют собой не что иное, как квинтэссенцию победы маркетинга над разумом и должны быть указаны как претенденты на роль ключевых факторов. С учётом сложившейся международной обстановки, реализация намеченных плановых заданий, в своём классическом представлении, допускает внедрение системы обучения кадров, соответствующей насущным потребностям." />
+
 </LinearLayout>
