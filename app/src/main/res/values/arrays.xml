@@ -13,10 +13,10 @@
     <!-- разное изображение скрепки -->
     <integer-array name="coat_of_arms_imgs">
         <item>@drawable/skrepka</item>
-        <item>@drawable/skrepka</item>
-        <item>@drawable/skrepka</item>
-        <item>@drawable/skrepka</item>
-        <item>@drawable/skrepka</item>
+        <item>@drawable/skrepka2</item>
+        <item>@drawable/skrepka3</item>
+        <item>@drawable/skrepka4</item>
+        <item>@drawable/skrepka5</item>
         <!--
         <item>@drawable/msc</item>
         <item>@drawable/spb</item>
@@ -25,7 +25,7 @@
         <item>@drawable/sam</item>
         -->
     </integer-array>
-    <!-- заголовки каждой заметки -->
+    <!-- ссылки на заголовки каждой заметки -->
     <integer-array name="coat_of_arms_header">
         <item>@string/notes_header01</item>
         <item>@string/notes_header02</item>
@@ -41,5 +41,15 @@
         <item>@string/notes04</item>
         <item>@string/notes05</item>
     </integer-array>
+    <!-- ссылки на текст дату каждой заметки -->
+    <integer-array name="coat_of_arms_notes_date">
+        <item>@string/date_note_01</item>
+        <item>@string/date_note_02</item>
+        <item>@string/date_note_03</item>
+        <item>@string/date_note_04</item>
+        <item>@string/date_note_05</item>
+    </integer-array>
+
+
 
 </resources>

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -31,14 +32,15 @@ public class CoatOfArmsFragment extends Fragment {
             int index = arguments.getInt(ARG_INDEX);
             // найдем в root view нужный ImageView (скрепка)
             ImageView imageCoatOfArms = view.findViewById(R.id.coat_of_arms_image_view);
-            // найдем в root view нужный TextView для полного текста заметки
+            // Получим из ресурсов массив данных: скрепка / заголовок / текст / дата
             TextView fulltextCoatOfArms = view.findViewById(R.id.notes_fulltext_TW);
-            // найдем в root view нужный TextView для заголовка заметки
             TextView headertextCoatOfArms = view.findViewById(R.id.notes_header_TW);
-            // Получим из ресурсов массив данных: скрепка / заголовок / текст
+            EditText dateTextCoatOfArms = view.findViewById(R.id.notesTextDate);
+
             TypedArray images = getResources().obtainTypedArray(R.array.coat_of_arms_imgs);
             TypedArray stringFullText = getResources().obtainTypedArray(R.array.coat_of_arms_notes);
             TypedArray stringHeaderText = getResources().obtainTypedArray(R.array.coat_of_arms_header);
+            TypedArray dateNotesText = getResources().obtainTypedArray(R.array.coat_of_arms_notes_date);
 
             // Возьмем нужное изображение и отобразим в ImageView
             imageCoatOfArms.setImageResource(images.getResourceId(index, 0));
@@ -49,6 +51,10 @@ public class CoatOfArmsFragment extends Fragment {
             // Возьмем заголовок заметки и отобразим в  TextView
             headertextCoatOfArms.setText(stringHeaderText.getResourceId(index,0));
             stringHeaderText.recycle();
+            // Дата заметки в EditText
+            dateTextCoatOfArms.setText(dateNotesText.getResourceId(index,0));
+            dateNotesText.recycle();
+
         }
     }
 

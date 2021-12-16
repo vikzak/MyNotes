@@ -30,6 +30,17 @@
         android:textSize="30sp"
         tools:text="Заметка №1"/>
 
+    <EditText
+        android:id="@+id/notesTextDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="date"
+        android:textAlignment="viewEnd"
+        android:textSize="14sp"
+        android:text="@string/date_note"
+        tools:text="10.01.2021" />
+
     <TextView
         android:id="@+id/notes_fulltext_TW"
         android:layout_width="match_parent"

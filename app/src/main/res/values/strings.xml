@@ -15,4 +15,12 @@
     <string name="notes_header04">Заметка №4</string>
     <string name="notes_header05">Заметка №5</string>
 
+    <string name="date_note">10.10.2021</string>
+
+    <string name="date_note_01">10.11.2021</string>
+    <string name="date_note_02">12.12.2021</string>
+    <string name="date_note_03">02.12.2021</string>
+    <string name="date_note_04">12.06.2021</string>
+    <string name="date_note_05">11.11.2021</string>
+
 </resources>
