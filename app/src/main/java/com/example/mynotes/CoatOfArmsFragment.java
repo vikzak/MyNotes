@@ -1,4 +1,5 @@
 package com.example.mynotes;
+
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -46,15 +47,14 @@ public class CoatOfArmsFragment extends Fragment {
             imageCoatOfArms.setImageResource(images.getResourceId(index, 0));
             images.recycle();
             // Возьмем текст заметки и отобразим в  TextView
-            fulltextCoatOfArms.setText(stringFullText.getResourceId(index,0));
+            fulltextCoatOfArms.setText(stringFullText.getResourceId(index, 0));
             stringFullText.recycle();
             // Возьмем заголовок заметки и отобразим в  TextView
-            headertextCoatOfArms.setText(stringHeaderText.getResourceId(index,0));
+            headertextCoatOfArms.setText(stringHeaderText.getResourceId(index, 0));
             stringHeaderText.recycle();
             // Дата заметки в EditText
-            dateTextCoatOfArms.setText(dateNotesText.getResourceId(index,0));
+            dateTextCoatOfArms.setText(dateNotesText.getResourceId(index, 0));
             dateNotesText.recycle();
-
         }
     }
 

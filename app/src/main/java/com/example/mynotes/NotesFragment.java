@@ -1,4 +1,5 @@
 package com.example.mynotes;
+
 import static com.example.mynotes.CoatOfArmsFragment.ARG_INDEX;
 
 import android.app.Activity;
@@ -50,7 +51,6 @@ public class NotesFragment extends Fragment {
     private void initList(View view) {
         LinearLayout layoutView = (LinearLayout) view;
         String[] notesArray = getResources().getStringArray(R.array.coat_of_arms_header);
-
         // В этом цикле создаём элемент TextView, заполняем его значениями, и добавляем на экран.
         for (int i = 0; i < notesArray.length; i++) {
             String city = notesArray[i];
