@@ -19,8 +19,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 public class NotesFragment extends Fragment {
 
-    private static final String CURRENT_CITY = "CurrentCity";
-    // Текущая позиция (выбранный город)
+    private static final String CURRENT_NOTE = "CurrentNote";
+    // Текущая позиция (заметка 0)
     private int currentPosition = 0;
 
     // При создании фрагмента укажем его макет
@@ -30,33 +30,30 @@ public class NotesFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_notes, container, false);
     }
 
-    // Этот метод вызывается, когда макет экрана создан и готов к отображению информации. Создаем список городов.
+    // Создаем список заметок.
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         // Восстановление текущей позиции
         if (savedInstanceState != null) {
-            currentPosition = savedInstanceState.getInt(CURRENT_CITY, 0);
+            currentPosition = savedInstanceState.getInt(CURRENT_NOTE, 0);
         }
         // инициализация списка
         initList(view);
-        // отображения открытого ранее герба в ландшафтной ориентации
+        // отображения открытой ранее заметки в ландшафтной ориентации
         if (isLandscape()) {
             showLandCoatOfArms(currentPosition);
         }
     }
 
-    // создаём список городов на экране из массива в ресурсах
+    // создаём список заметок из массива в ресурсах
     private void initList(View view) {
         LinearLayout layoutView = (LinearLayout) view;
-        String[] cities = getResources().getStringArray(R.array.coat_of_arms_header);
-        //fulltextCoatOfArms
+        String[] notesArray = getResources().getStringArray(R.array.coat_of_arms_header);
 
-        // В этом цикле создаём элемент TextView,
-        // заполняем его значениями,
-        // и добавляем на экран.
-        for (int i = 0; i < cities.length; i++) {
-            String city = cities[i];
+        // В этом цикле создаём элемент TextView, заполняем его значениями, и добавляем на экран.
+        for (int i = 0; i < notesArray.length; i++) {
+            String city = notesArray[i];
             TextView tv = new TextView(getContext());
             tv.setText(city);
             tv.setTextSize(20);
@@ -67,8 +64,6 @@ public class NotesFragment extends Fragment {
                 showCoatOfArms(position);
             });
         }
-
-
     }
 
     private void showCoatOfArms(int index) {
@@ -79,7 +74,7 @@ public class NotesFragment extends Fragment {
         }
     }
 
-    // Показываем герб в портретной ориентации
+    // Показываем заметки в портретной ориентации
     private void showPortCoatOfArms(int index) {
         Activity activity = requireActivity();
         final Intent intent = new Intent(activity, CoatOfArmsActivity.class);
@@ -87,9 +82,9 @@ public class NotesFragment extends Fragment {
         activity.startActivity(intent);
     }
 
-    // Показываем герб в ландшафтной ориентации
+    // Показываем заметки в ландшафтной ориентации
     private void showLandCoatOfArms(int index) {
-        // Создаём новый фрагмент с текущей позицией для вывода герба
+        // Создаём новый фрагмент с текущей позицией для вывода заметок
         CoatOfArmsFragment detail = CoatOfArmsFragment.newInstance(index);
         // Выполняем транзакцию по замене фрагмента
         FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
@@ -101,7 +96,7 @@ public class NotesFragment extends Fragment {
 
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
-        outState.putInt(CURRENT_CITY, currentPosition);
+        outState.putInt(CURRENT_NOTE, currentPosition);
         super.onSaveInstanceState(outState);
     }
 

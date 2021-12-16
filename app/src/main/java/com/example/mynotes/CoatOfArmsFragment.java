@@ -29,34 +29,29 @@ public class CoatOfArmsFragment extends Fragment {
         // поэтому обязательно проверяем на null
         if (arguments != null) {
             int index = arguments.getInt(ARG_INDEX);
-            // найдем в root view нужный ImageView
+            // найдем в root view нужный ImageView (скрепка)
             ImageView imageCoatOfArms = view.findViewById(R.id.coat_of_arms_image_view);
-            // найдем в root view нужный TextView для текста заметки
+            // найдем в root view нужный TextView для полного текста заметки
             TextView fulltextCoatOfArms = view.findViewById(R.id.notes_fulltext_TW);
             // найдем в root view нужный TextView для заголовка заметки
             TextView headertextCoatOfArms = view.findViewById(R.id.notes_header_TW);
-            // Получим из ресурсов массив указателей на изображения гербов
-            // Обратите внимание на тип - TypedArray, и способ получения - obtainTypedArray
+            // Получим из ресурсов массив данных: скрепка / заголовок / текст
             TypedArray images = getResources().obtainTypedArray(R.array.coat_of_arms_imgs);
             TypedArray stringFullText = getResources().obtainTypedArray(R.array.coat_of_arms_notes);
             TypedArray stringHeaderText = getResources().obtainTypedArray(R.array.coat_of_arms_header);
 
             // Возьмем нужное изображение и отобразим в ImageView
             imageCoatOfArms.setImageResource(images.getResourceId(index, 0));
-            // TypedArray рекомендуется закрыть после использования
             images.recycle();
-
+            // Возьмем текст заметки и отобразим в  TextView
             fulltextCoatOfArms.setText(stringFullText.getResourceId(index,0));
             stringFullText.recycle();
-
-            //String[] cities = getResources().getStringArray(R.array.notes_name);
+            // Возьмем заголовок заметки и отобразим в  TextView
             headertextCoatOfArms.setText(stringHeaderText.getResourceId(index,0));
             stringHeaderText.recycle();
         }
     }
 
-    // Фабричный метод создания фрагмента
-    // Фрагменты рекомендуется создавать через фабричные методы
     public static CoatOfArmsFragment newInstance(int index) {
         // Создание фрагмента
         CoatOfArmsFragment fragment = new CoatOfArmsFragment();

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- убрал этот массив, использую тот что ниже -->
     <!--
     <string-array name="notes_name">
         <item>Заметка №1</item>
@@ -9,6 +10,7 @@
         <item>Заметка №5</item>
     </string-array>
     -->
+    <!-- разное изображение скрепки -->
     <integer-array name="coat_of_arms_imgs">
         <item>@drawable/skrepka</item>
         <item>@drawable/skrepka</item>
@@ -23,7 +25,7 @@
         <item>@drawable/sam</item>
         -->
     </integer-array>
-
+    <!-- заголовки каждой заметки -->
     <integer-array name="coat_of_arms_header">
         <item>@string/notes_header01</item>
         <item>@string/notes_header02</item>
@@ -31,7 +33,7 @@
         <item>@string/notes_header04</item>
         <item>@string/notes_header05</item>
     </integer-array>
-
+    <!-- ссылки на текст каждой заметки -->
     <integer-array name="coat_of_arms_notes">
         <item>@string/notes01</item>
         <item>@string/notes02</item>

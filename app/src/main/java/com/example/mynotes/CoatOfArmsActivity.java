@@ -19,7 +19,7 @@ public class CoatOfArmsActivity extends AppCompatActivity {
             return;
         }
 
-        // Если эта activity запускается первый раз (с каждым новым гербом первый раз),
+        // Если эта activity запускается первый раз,
         // то перенаправим параметр фрагменту и запустим фрагмент
         if (savedInstanceState == null)
             getSupportFragmentManager()
