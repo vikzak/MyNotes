@@ -56,7 +56,7 @@ public class NotesFragment extends Fragment {
             String city = notesArray[i];
             TextView tv = new TextView(getContext());
             tv.setText(city);
-            tv.setTextSize(20);
+            tv.setTextSize(getResources().getDimension(R.dimen.note_font_size));
             layoutView.addView(tv);
             final int position = i;
             tv.setOnClickListener(v -> {

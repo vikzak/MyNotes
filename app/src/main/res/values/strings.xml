@@ -24,6 +24,7 @@
     <string name="date_note_05">11.11.2021</string>
 
     <string name="margin_min">10dp</string>
+    <dimen name="note_font_size">8sp</dimen>
     <string name="dp_max">50dp</string>
 
 </resources>
