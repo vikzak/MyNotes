@@ -23,7 +23,7 @@
         android:id="@+id/notes_header_TW"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="@string/margin_min"
         android:layout_marginRight="10dp"
         android:text="text"
         android:textSize="30sp"
