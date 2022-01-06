@@ -30,40 +30,57 @@ public class CoatOfArmsFragment extends Fragment {
         // Аргументы могут быть null (как в случае с методом Activity getIntent())
         // поэтому обязательно проверяем на null
         if (arguments != null) {
-            int index = arguments.getInt(ARG_INDEX);
+            Notes notes = (Notes) arguments.getParcelable(ARG_INDEX);
             // найдем в root view нужный ImageView (скрепка)
-            ImageView imageCoatOfArms = view.findViewById(R.id.coat_of_arms_image_view);
+            ///////////ImageView imageCoatOfArms = view.findViewById(R.id.coat_of_arms_image_view);
             // Получим из ресурсов массив данных: скрепка / заголовок / текст / дата
-            TextView fulltextCoatOfArms = view.findViewById(R.id.notes_fulltext_TW);
-            TextView headertextCoatOfArms = view.findViewById(R.id.notes_header_TW);
-            EditText dateTextCoatOfArms = view.findViewById(R.id.notesTextDate);
-
-            TypedArray images = getResources().obtainTypedArray(R.array.coat_of_arms_imgs);
-            TypedArray stringFullText = getResources().obtainTypedArray(R.array.coat_of_arms_notes);
-            TypedArray stringHeaderText = getResources().obtainTypedArray(R.array.coat_of_arms_header);
-            TypedArray dateNotesText = getResources().obtainTypedArray(R.array.coat_of_arms_notes_date);
+            ////////TypedArray images = getResources().obtainTypedArray(R.array.coat_of_arms_imgs);
 
             // Возьмем нужное изображение и отобразим в ImageView
-            imageCoatOfArms.setImageResource(images.getResourceId(index, 0));
-            images.recycle();
+            ////////imageCoatOfArms.setImageResource(images.getResourceId(notes.getImageIndex(),0));
+            ///////images.recycle();
             // Возьмем текст заметки и отобразим в  TextView
-            fulltextCoatOfArms.setText(stringFullText.getResourceId(index, 0));
-            stringFullText.recycle();
+            /////fulltextCoatOfArms.setText(stringFullText.getResourceId(notes, 0));
+            //stringFullText.recycle();
             // Возьмем заголовок заметки и отобразим в  TextView
-            headertextCoatOfArms.setText(stringHeaderText.getResourceId(index, 0));
-            stringHeaderText.recycle();
+            ImageView imageViewNote = view.findViewById(R.id.coat_of_arms_image_view);
+            TypedArray imageNotes = getResources().obtainTypedArray(R.array.coat_of_arms_imgs);
+            imageViewNote.setImageResource(imageNotes.getResourceId(notes.getImageIndex(),0));
+            //imageNotes.recycle();
+
+            TextView textViewNotesHeader = view.findViewById(R.id.notes_header_TW);
+            //TypedArray noteHeader = getResources().obtainTypedArray(R.id.notes_header_TW);
+            textViewNotesHeader.setText(notes.getNoteName());
+            //noteHeader.recycle();
+
+            TextView textViewNotesText = view.findViewById(R.id.notes_fulltext_TW);
+            //TypedArray notesText = getResources().obtainTypedArray(R.id.notes_fulltext_TW);
+            textViewNotesText.setText(notes.getNoteText());
+            //notesText.recycle();
+
+            EditText editTextNotesDate = view.findViewById(R.id.notesTextDate);
+            //TypedArray notesData = getResources().obtainTypedArray(R.id.notesTextDate);
+            editTextNotesDate.setText(notes.getNoteData());
+            //notesData.recycle();
+
+
+
+
+            //headertextCoatOfArms.setText(stringHeaderText.getResourceId(index, 0));
+            //stringHeaderText.recycle();
             // Дата заметки в EditText
-            dateTextCoatOfArms.setText(dateNotesText.getResourceId(index, 0));
-            dateNotesText.recycle();
+            ///////dateTextCoatOfArms.setText(dateNotesText.getResourceId(notes, 0));
+            ///////dateNotesText.recycle();
         }
     }
 
-    public static CoatOfArmsFragment newInstance(int index) {
+    public static CoatOfArmsFragment newInstance(Notes notes) {
         // Создание фрагмента
         CoatOfArmsFragment fragment = new CoatOfArmsFragment();
         // Передача параметра через бандл
         Bundle args = new Bundle();
-        args.putInt(ARG_INDEX, index);
+        args.putParcelable(ARG_INDEX,notes);
+        //args.putInt(ARG_INDEX, notes);
         fragment.setArguments(args);
         return fragment;
     }

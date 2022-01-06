@@ -22,7 +22,8 @@ public class NotesFragment extends Fragment {
 
     private static final String CURRENT_NOTE = "CurrentNote";
     // Текущая позиция (заметка 0)
-    private int currentPosition = 0;
+    //private int currentPosition = 0;
+    private Notes notes = null;
 
     // При создании фрагмента укажем его макет
     @Override
@@ -37,13 +38,13 @@ public class NotesFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         // Восстановление текущей позиции
         if (savedInstanceState != null) {
-            currentPosition = savedInstanceState.getInt(CURRENT_NOTE, 0);
+            notes = savedInstanceState.getParcelable(CURRENT_NOTE);
         }
         // инициализация списка
         initList(view);
         // отображения открытой ранее заметки в ландшафтной ориентации
         if (isLandscape()) {
-            showLandCoatOfArms(currentPosition);
+            showLandCoatOfArms(notes);
         }
     }
 
@@ -51,41 +52,47 @@ public class NotesFragment extends Fragment {
     private void initList(View view) {
         LinearLayout layoutView = (LinearLayout) view;
         String[] notesArray = getResources().getStringArray(R.array.coat_of_arms_header);
+        String[] notesTextArray = getResources().getStringArray(R.array.coat_of_arms_notes);
+        String[] notesDataArray = getResources().getStringArray(R.array.coat_of_arms_notes_date);
+
         // В этом цикле создаём элемент TextView, заполняем его значениями, и добавляем на экран.
         for (int i = 0; i < notesArray.length; i++) {
-            String city = notesArray[i];
+            String currentNotes = notesArray[i];
+            String noteText = notesTextArray[i];
+            String noteData = notesDataArray[i];
+
             TextView tv = new TextView(getContext());
-            tv.setText(city);
+            tv.setText(currentNotes);
             tv.setTextSize(getResources().getDimension(R.dimen.note_font_size));
             layoutView.addView(tv);
             final int position = i;
             tv.setOnClickListener(v -> {
-                currentPosition = position;
-                showCoatOfArms(position);
+                notes = new Notes(position, currentNotes, noteText, noteData);
+                showCoatOfArms(notes);
             });
         }
     }
 
-    private void showCoatOfArms(int index) {
+    private void showCoatOfArms(Notes notes) {
         if (isLandscape()) {
-            showLandCoatOfArms(index);
+            showLandCoatOfArms(notes);
         } else {
-            showPortCoatOfArms(index);
+            showPortCoatOfArms(notes);
         }
     }
 
     // Показываем заметки в портретной ориентации
-    private void showPortCoatOfArms(int index) {
+    private void showPortCoatOfArms(Notes notes) {
         Activity activity = requireActivity();
         final Intent intent = new Intent(activity, CoatOfArmsActivity.class);
-        intent.putExtra(ARG_INDEX, index);
+        intent.putExtra(ARG_INDEX, notes);
         activity.startActivity(intent);
     }
 
     // Показываем заметки в ландшафтной ориентации
-    private void showLandCoatOfArms(int index) {
+    private void showLandCoatOfArms(Notes notes) {
         // Создаём новый фрагмент с текущей позицией для вывода заметок
-        CoatOfArmsFragment detail = CoatOfArmsFragment.newInstance(index);
+        CoatOfArmsFragment detail = CoatOfArmsFragment.newInstance(notes);
         // Выполняем транзакцию по замене фрагмента
         FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -96,7 +103,8 @@ public class NotesFragment extends Fragment {
 
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
-        outState.putInt(CURRENT_NOTE, currentPosition);
+        //outState.putInt(CURRENT_NOTE, currentPosition);
+        outState.putParcelable(CURRENT_NOTE, notes);
         super.onSaveInstanceState(outState);
     }
 

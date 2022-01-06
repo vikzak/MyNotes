@@ -21,9 +21,13 @@ public class CoatOfArmsActivity extends AppCompatActivity {
 
         // Если эта activity запускается первый раз,
         // то перенаправим параметр фрагменту и запустим фрагмент
+        //Notes notes = (Notes) getIntent().getExtras().getSerializable(ARG_INDEX);
+        Notes notes = getIntent().getExtras().getParcelable(ARG_INDEX);
         if (savedInstanceState == null)
             getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.coat_of_arms_fragment_container, CoatOfArmsFragment.newInstance(getIntent().getExtras().getInt(ARG_INDEX))).commit();
+                    .replace(R.id.coat_of_arms_fragment_container, CoatOfArmsFragment.newInstance(notes))
+                    .commit();
+                    //.replace(R.id.coat_of_arms_fragment_container, CoatOfArmsFragment.newInstance(getIntent().getExtras().getInt(ARG_INDEX))).commit();
     }
 }
