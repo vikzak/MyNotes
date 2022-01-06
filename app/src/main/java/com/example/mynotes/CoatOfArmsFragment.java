@@ -5,57 +5,21 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.AppCompatImageView;
 import androidx.fragment.app.Fragment;
-
 
 public class CoatOfArmsFragment extends Fragment {
 
     static final String ARG_INDEX = "index";
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public CoatOfArmsFragment() {
-        // Required empty public constructor
-    }
-
-
-    // TODO: Rename and change types and number of parameters
-    // Фабричный метод создания фрагмента
-    // Фрагменты рекомендуется создавать через фабричные методы
-    public static CoatOfArmsFragment newInstance(int index) {
-        // Создание фрагмента
-        CoatOfArmsFragment fragment = new CoatOfArmsFragment();
-        Bundle args = new Bundle();
-        args.putInt(ARG_INDEX, index);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_coat_of_arms, container, false);
     }
 
@@ -64,15 +28,44 @@ public class CoatOfArmsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         Bundle arguments = getArguments();
         // Аргументы могут быть null (как в случае с методом Activity getIntent())
-        // поэтому обязательно проверяем на null if (arguments != null) {
-        int index = arguments.getInt(ARG_INDEX);
-        // найдем в root view нужный ImageView
-        ImageView imageCoatOfArms =
-                view.findViewById(R.id.coat_of_arms_image_view);
-        // Получим из ресурсов массив указателей на изображения гербов
-        // Обратите внимание на тип - TypedArray, и способ получения - obtainTypedArray
-        TypedArray images =
-                getResources().obtainTypedArray(R.array.coat_of_arms_imgs);
-// Возьмем нужное изображение и отобразим в ImageView imageCoatOfArms.setImageResource(images.getResourceId(index, 0)); // TypedArray рекомендуется закрыть после использования images.recycle();
+        // поэтому обязательно проверяем на null
+        if (arguments != null) {
+            Notes notes = arguments.getParcelable(ARG_INDEX);
+            // найдем в root view нужный ImageView (скрепка)
+            // Получим из ресурсов массив данных: скрепка / заголовок / текст / дата
+            // Возьмем нужное изображение и отобразим в ImageView
+            // Возьмем текст заметки и отобразим в  TextView
+            // Возьмем заголовок заметки и отобразим в  TextView
+            ImageView imageViewNote = view.findViewById(R.id.coat_of_arms_image_view);
+            TypedArray imageNotes = getResources().obtainTypedArray(R.array.coat_of_arms_imgs);
+            imageViewNote.setImageResource(imageNotes.getResourceId(notes.getImageIndex(),0));
+            imageNotes.recycle();
+
+            TextView textViewNotesHeader = view.findViewById(R.id.notes_header_TW);
+            //TypedArray noteHeader = getResources().obtainTypedArray(R.id.notes_header_TW);
+            textViewNotesHeader.setText(notes.getNoteName());
+            //noteHeader.recycle();
+
+            TextView textViewNotesText = view.findViewById(R.id.notes_fulltext_TW);
+            //TypedArray notesText = getResources().obtainTypedArray(R.id.notes_fulltext_TW);
+            textViewNotesText.setText(notes.getNoteText());
+            //notesText.recycle();
+
+            EditText editTextNotesDate = view.findViewById(R.id.notesTextDate);
+            //TypedArray notesData = getResources().obtainTypedArray(R.id.notesTextDate);
+            editTextNotesDate.setText(notes.getNoteData());
+            //notesData.recycle();
+        }
+    }
+
+    public static CoatOfArmsFragment newInstance(Notes notes) {
+        // Создание фрагмента
+        CoatOfArmsFragment fragment = new CoatOfArmsFragment();
+        // Передача параметра через бандл
+        Bundle args = new Bundle();
+        args.putParcelable(ARG_INDEX,notes);
+        //args.putInt(ARG_INDEX, notes);
+        fragment.setArguments(args);
+        return fragment;
     }
 }

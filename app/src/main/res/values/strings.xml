@@ -2,4 +2,29 @@
     <string name="app_name">MyNotes</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="notes01">Таким образом реализация намеченных плановых заданий позволяет оценить значение новых предложений. </string>
+    <string name="notes02">С другой стороны рамки и место обучения кадров способствует подготовки и реализации модели развития. Равным образом консультация с широким активом требуют определения и уточнения модели развития. </string>
+    <string name="notes03">С другой стороны рамки и место обучения кадров способствует подготовки и реализации модели развития.</string>
+    <string name="notes04">Разнообразный и богатый опыт консультация с широким активом обеспечивает широкому кругу. Повседневная практика показывает, что реализация намеченных плановых заданий в значительной степени обуславливает создание модели развития.</string>
+    <string name="notes05">Идейные соображения высшего порядка, а также укрепление и развитие структуры играет важную роль в формировании существенных финансовых и административных условий.</string>
+
+    <string name="notes_header01">Заметка №1</string>
+    <string name="notes_header02">Заметка №2</string>
+    <string name="notes_header03">Заметка №3</string>
+    <string name="notes_header04">Заметка №4</string>
+    <string name="notes_header05">Заметка №5</string>
+
+    <string name="date_note">10.10.2021</string>
+
+    <string name="date_note_01">10.11.2021</string>
+    <string name="date_note_02">12.12.2021</string>
+    <string name="date_note_03">02.12.2021</string>
+    <string name="date_note_04">12.06.2021</string>
+    <string name="date_note_05">11.11.2021</string>
+
+    <string name="margin_min">10dp</string>
+    <dimen name="note_font_size">8sp</dimen>
+    <string name="dp_max">50dp</string>
+
 </resources>

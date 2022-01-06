@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- убрал этот массив, использую тот что ниже -->
+    <!--
     <string-array name="notes_name">
         <item>Заметка №1</item>
         <item>Заметка №2</item>
@@ -7,11 +9,44 @@
         <item>Заметка №4</item>
         <item>Заметка №5</item>
     </string-array>
+    -->
+    <!-- разное изображение скрепки -->
     <integer-array name="coat_of_arms_imgs">
-        <item>@drawable/msc</item><!-- герб Москвы -->
-        <item>@drawable/spb</item><!-- герб Санкт-Петербурга -->
-        <item>@drawable/ebrg</item><!-- герб Екатеринбурга -->
-        <item>@drawable/nsk</item><!-- герб Новосибирска -->
-        <item>@drawable/sam</item><!-- герб Самары -->
+        <item>@drawable/skrepka</item>
+        <item>@drawable/skrepka2</item>
+        <item>@drawable/skrepka3</item>
+        <item>@drawable/skrepka4</item>
+        <item>@drawable/skrepka5</item>
+        <!--
+        <item>@drawable/msc</item>
+        <item>@drawable/spb</item>
+        <item>@drawable/ebrg</item>
+        <item>@drawable/nsk</item>
+        <item>@drawable/sam</item>
+        -->
+    </integer-array>
+    <!-- ссылки на заголовки каждой заметки -->
+    <integer-array name="coat_of_arms_header">
+        <item>@string/notes_header01</item>
+        <item>@string/notes_header02</item>
+        <item>@string/notes_header03</item>
+        <item>@string/notes_header04</item>
+        <item>@string/notes_header05</item>
+    </integer-array>
+    <!-- ссылки на текст каждой заметки -->
+    <integer-array name="coat_of_arms_notes">
+        <item>@string/notes01</item>
+        <item>@string/notes02</item>
+        <item>@string/notes03</item>
+        <item>@string/notes04</item>
+        <item>@string/notes05</item>
+    </integer-array>
+    <!-- ссылки на текст дату каждой заметки -->
+    <integer-array name="coat_of_arms_notes_date">
+        <item>@string/date_note_01</item>
+        <item>@string/date_note_02</item>
+        <item>@string/date_note_03</item>
+        <item>@string/date_note_04</item>
+        <item>@string/date_note_05</item>
     </integer-array>
 </resources>

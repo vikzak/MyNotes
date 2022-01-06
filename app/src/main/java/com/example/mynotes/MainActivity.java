@@ -1,6 +1,7 @@
 package com.example.mynotes;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -13,12 +14,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // Создаем фрагмент
-        NotesFragment notesFragment = new NotesFragment();
-        // Вызываем FragmentManager
-        getSupportFragmentManager()
+
+        if (savedInstanceState == null) getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.fragment_container, notesFragment).commit();
+                .add(R.id.fragment_container, new NotesFragment()).commit();
     }
+
 
 }

@@ -3,12 +3,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:background="@color/white"
+    android:backgroundTint="@color/notes_bg"
+    android:clickable="true"
+    android:focusable="true"
     android:orientation="vertical"
     tools:context=".CoatOfArmsFragment">
 
     <ImageView
         android:id="@+id/coat_of_arms_image_view"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:contentDescription="coat of arms"
+        tools:src="@drawable/skrepka" />
+
+    <TextView
+        android:id="@+id/notes_header_TW"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="text"
+        android:textSize="30sp"
+        tools:text="Заметка №1" />
+
+    <EditText
+        android:id="@+id/notesTextDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:ems="10"
+        android:fontFamily="sans-serif-condensed"
+        android:inputType="date"
+        android:minHeight="50dp"
+        android:text="@string/date_note"
+        android:textAlignment="viewEnd"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        tools:text="10.01.2021" />
+
+    <TextView
+        android:id="@+id/notes_fulltext_TW"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:contentDescription="coat of arms" />
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Для современного мира разбавленное изрядной долей эмпатии, рациональное мышление однозначно фиксирует необходимость новых принципов формирования материально-технической и кадровой базы. В своём стремлении улучшить пользовательский опыт мы упускаем, что сторонники тоталитаризма в науке представляют собой не что иное, как квинтэссенцию победы маркетинга над разумом и должны быть указаны как претенденты на роль ключевых факторов. С учётом сложившейся международной обстановки, реализация намеченных плановых заданий, в своём классическом представлении, допускает внедрение системы обучения кадров, соответствующей насущным потребностям."
+        android:textSize="20sp"
+        tools:text="Для современного мира разбавленное изрядной долей эмпатии, рациональное мышление однозначно фиксирует необходимость новых принципов формирования материально-технической и кадровой базы. В своём стремлении улучшить пользовательский опыт мы упускаем, что сторонники тоталитаризма в науке представляют собой не что иное, как квинтэссенцию победы маркетинга над разумом и должны быть указаны как претенденты на роль ключевых факторов. С учётом сложившейся международной обстановки, реализация намеченных плановых заданий, в своём классическом представлении, допускает внедрение системы обучения кадров, соответствующей насущным потребностям." />
+
 </LinearLayout>
