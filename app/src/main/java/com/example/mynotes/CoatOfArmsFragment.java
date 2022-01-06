@@ -42,19 +42,13 @@ public class CoatOfArmsFragment extends Fragment {
             imageNotes.recycle();
 
             TextView textViewNotesHeader = view.findViewById(R.id.notes_header_TW);
-            //TypedArray noteHeader = getResources().obtainTypedArray(R.id.notes_header_TW);
             textViewNotesHeader.setText(notes.getNoteName());
-            //noteHeader.recycle();
 
             TextView textViewNotesText = view.findViewById(R.id.notes_fulltext_TW);
-            //TypedArray notesText = getResources().obtainTypedArray(R.id.notes_fulltext_TW);
             textViewNotesText.setText(notes.getNoteText());
-            //notesText.recycle();
 
             EditText editTextNotesDate = view.findViewById(R.id.notesTextDate);
-            //TypedArray notesData = getResources().obtainTypedArray(R.id.notesTextDate);
             editTextNotesDate.setText(notes.getNoteData());
-            //notesData.recycle();
         }
     }
 
