@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -37,15 +38,17 @@ public class NotesFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         // Восстановление текущей позиции
-        if (savedInstanceState != null) {
-            notes = savedInstanceState.getParcelable(CURRENT_NOTE);
-        }
+        // lesson-07 //  if (savedInstanceState != null) {
+        // lesson-07 //     notes = savedInstanceState.getParcelable(CURRENT_NOTE);
+        // lesson-07 // }
         // инициализация списка
+
+
         initList(view);
         // отображения открытой ранее заметки в ландшафтной ориентации
-        if (isLandscape()) {
-            showLandCoatOfArms(notes);
-        }
+        // lesson-07 // if (isLandscape()) {
+        // lesson-07 //     showLandCoatOfArms(notes);
+        // lesson-07 // }
     }
 
     // создаём список заметок из массива в ресурсах
@@ -67,8 +70,9 @@ public class NotesFragment extends Fragment {
             layoutView.addView(tv);
             final int position = i;
             tv.setOnClickListener(v -> {
-                notes = new Notes(position, currentNotes, noteText, noteData);
-                showCoatOfArms(notes);
+                showPortCoatOfArms(new Notes(position, currentNotes, noteText, noteData));
+                // lesson-07 // notes = new Notes(position, currentNotes, noteText, noteData);
+                // lesson-07 // showCoatOfArms(notes);
             });
         }
     }
@@ -83,10 +87,17 @@ public class NotesFragment extends Fragment {
 
     // Показываем заметки в портретной ориентации
     private void showPortCoatOfArms(Notes notes) {
-        Activity activity = requireActivity();
-        final Intent intent = new Intent(activity, CoatOfArmsActivity.class);
-        intent.putExtra(ARG_INDEX, notes);
-        activity.startActivity(intent);
+        FragmentTransaction fragmentTransaction = requireActivity()
+                .getSupportFragmentManager()
+                .beginTransaction();
+        fragmentTransaction
+                .addToBackStack("")
+                .add(R.id.fragment_container, CoatOfArmsFragment.newInstance(notes))
+                .commit();
+        // lesson-07 // Activity activity = requireActivity();
+        // lesson-07 // final Intent intent = new Intent(activity, CoatOfArmsActivity.class);
+        // lesson-07 // intent.putExtra(ARG_INDEX, notes);
+        // lesson-07 // activity.startActivity(intent);
     }
 
     // Показываем заметки в ландшафтной ориентации
@@ -111,5 +122,13 @@ public class NotesFragment extends Fragment {
     private boolean isLandscape() {
         return getResources().getConfiguration().orientation
                 == Configuration.ORIENTATION_LANDSCAPE;
+    }
+
+    public static CoatOfArmsFragment newInstance(Notes notes) {
+        CoatOfArmsFragment fragment = new CoatOfArmsFragment();
+        Bundle args = new Bundle();
+        args.putParcelable(ARG_INDEX, notes);
+        fragment.setArguments(args);
+        return fragment;
     }
 }
