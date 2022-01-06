@@ -30,23 +30,16 @@ public class CoatOfArmsFragment extends Fragment {
         // Аргументы могут быть null (как в случае с методом Activity getIntent())
         // поэтому обязательно проверяем на null
         if (arguments != null) {
-            Notes notes = (Notes) arguments.getParcelable(ARG_INDEX);
+            Notes notes = arguments.getParcelable(ARG_INDEX);
             // найдем в root view нужный ImageView (скрепка)
-            ///////////ImageView imageCoatOfArms = view.findViewById(R.id.coat_of_arms_image_view);
             // Получим из ресурсов массив данных: скрепка / заголовок / текст / дата
-            ////////TypedArray images = getResources().obtainTypedArray(R.array.coat_of_arms_imgs);
-
             // Возьмем нужное изображение и отобразим в ImageView
-            ////////imageCoatOfArms.setImageResource(images.getResourceId(notes.getImageIndex(),0));
-            ///////images.recycle();
             // Возьмем текст заметки и отобразим в  TextView
-            /////fulltextCoatOfArms.setText(stringFullText.getResourceId(notes, 0));
-            //stringFullText.recycle();
             // Возьмем заголовок заметки и отобразим в  TextView
             ImageView imageViewNote = view.findViewById(R.id.coat_of_arms_image_view);
             TypedArray imageNotes = getResources().obtainTypedArray(R.array.coat_of_arms_imgs);
             imageViewNote.setImageResource(imageNotes.getResourceId(notes.getImageIndex(),0));
-            //imageNotes.recycle();
+            imageNotes.recycle();
 
             TextView textViewNotesHeader = view.findViewById(R.id.notes_header_TW);
             //TypedArray noteHeader = getResources().obtainTypedArray(R.id.notes_header_TW);
@@ -62,15 +55,6 @@ public class CoatOfArmsFragment extends Fragment {
             //TypedArray notesData = getResources().obtainTypedArray(R.id.notesTextDate);
             editTextNotesDate.setText(notes.getNoteData());
             //notesData.recycle();
-
-
-
-
-            //headertextCoatOfArms.setText(stringHeaderText.getResourceId(index, 0));
-            //stringHeaderText.recycle();
-            // Дата заметки в EditText
-            ///////dateTextCoatOfArms.setText(dateNotesText.getResourceId(notes, 0));
-            ///////dateNotesText.recycle();
         }
     }
 
